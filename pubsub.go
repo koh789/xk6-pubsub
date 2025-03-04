@@ -1,7 +1,6 @@
 package pubsub
 
 import (
-	"context"
 	"log"
 	"time"
 
@@ -74,7 +73,7 @@ func (ps *PubSub) Publisher(config map[string]interface{}) *googlecloud.Publishe
 // Publish publishes a message to the provided topic using provided
 // googlecloud.Publisher. The msg value must be passed as string
 // and will be converted to bytes sequence before publishing.
-func (ps *PubSub) Publish(ctx context.Context, p *googlecloud.Publisher, topic, msg string) error {
+func (ps *PubSub) Publish(p *googlecloud.Publisher, topic, msg string) error {
 
 	err := p.Publish(
 		topic,
